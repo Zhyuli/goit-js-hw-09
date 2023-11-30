@@ -8,11 +8,11 @@ document.body.style.background = '#E6E6FA';
 // let selectedDate = null;
 // let currentDate = null;
 
-const timerDays = document.querySelector('.span[data-days]');
-const timerHours = document.querySelector('.span[data-hours]');
-const timerMinutes = document.querySelector('.span[data-minutes]');
-const timerSeconds = document.querySelector('.span[data-seconds]');
-const timerInput = document.getElementById('datetime-picker');
+const timerDays = document.querySelector('[data-days]');
+const timerHours = document.querySelector('[data-hours]');
+const timerMinutes = document.querySelector('[data-minutes]');
+const timerSeconds = document.querySelector('[data-seconds]');
+const timerInput = document.querySelector('input#datetime-picker');
 const startBtn = document.querySelector('button[data-start]');
 
 
