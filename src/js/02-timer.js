@@ -37,7 +37,7 @@ flatpickr(timerInput, options);
 Report.info('Select the date and click on start');
   
 function checkDate (selectedDates) {
-  selectedDate = selectedDates[0].getTime();
+  const selectedDate = selectedDates[0].getTime();
   const currentDate = new Date().getTime();
 
 if (selectedDate > currentDate) {
