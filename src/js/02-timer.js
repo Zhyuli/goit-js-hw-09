@@ -52,7 +52,6 @@ Report.failure('Please, choose a date in the future');
 function timerStart() {
   const intervalId = setInterval(() => {
     const currentDate = new Date().getTime();
-    const selectedDate = selectedDates[0].getTime();
  
     if (selectedDate - currentDate <= 1000) {
       clearInterval(intervalId);
