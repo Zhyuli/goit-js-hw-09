@@ -4,8 +4,9 @@ import "flatpickr/dist/flatpickr.min.css";
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
 document.body.style.background = '#E6E6FA';
+
 // let intervalId = null;
-let selectedDate = null;
+// let selectedDate = null;
 // let currentDate = null;
 
 const timerDays = document.querySelector('[data-days]');
@@ -48,10 +49,11 @@ if (selectedDate > currentDate) {
 Report.failure('Please, choose a date in the future');
 }
 
-function timerStart(day) {
+function timerStart() {
   const intervalId = setInterval(() => {
-   const currentDate = new Date().getTime();
-  const selectedDate = day.getTime();
+    const currentDate = new Date().getTime();
+    const selectedDate = selectedDates[0].getTime();
+ 
     if (selectedDate - currentDate <= 1000) {
       clearInterval(intervalId);
       startBtn.disabled = true;
