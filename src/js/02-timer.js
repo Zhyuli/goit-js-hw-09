@@ -48,7 +48,7 @@ if (selectedDate > currentDate) {
 Report.failure('Please, choose a date in the future');
 }
 
-function timerStart() {
+function timerStart(day) {
   const intervalId = setInterval(() => {
    const currentDate = new Date().getTime();
   const selectedDate = day.getTime();
