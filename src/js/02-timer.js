@@ -6,7 +6,7 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 document.body.style.background = '#E6E6FA';
 
 // let intervalId = null;
-// let selectedDate = null;
+let selectedDate = null;
 // let currentDate = null;
 
 const timerDays = document.querySelector('[data-days]');
