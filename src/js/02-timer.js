@@ -5,9 +5,10 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 
 document.body.style.background = '#E6E6FA';
 
-// let intervalId = null;
+let intervalId = null;
 let selectedDate = null;
-// let currentDate = null;
+let currentDate = null;
+let remainingTime = 0;
 
 const timerDays = document.querySelector('[data-days]');
 const timerHours = document.querySelector('[data-hours]');
@@ -20,7 +21,7 @@ const startBtn = document.querySelector('button[data-start]');
 startBtn.disabled = true;
 startBtn.addEventListener('click', timerStart);
 
-let remainingTime = 0;
+
 
 const options = {
   enableTime: true,
@@ -38,8 +39,8 @@ flatpickr(timerInput, options);
 Report.info('Select the date and click on start');
   
 function checkDate (selectedDates) {
-  const selectedDate = selectedDates[0].getTime();
-  const currentDate = new Date().getTime();
+  selectedDate = selectedDates[0].getTime();
+  currentDate = new Date().getTime();
 
 if (selectedDate > currentDate) {
   startBtn.disabled = false;
@@ -50,9 +51,11 @@ Report.failure('Please, choose a date in the future');
 }
 
 function timerStart() {
-  const intervalId = setInterval(() => {
-    const currentDate = new Date().getTime();
- 
+  intervalId = setInterval(() => {
+    currentDate = new Date().getTime();
+  
+    console.log(selectedDate);
+    console.log(currentDate);
     if (selectedDate - currentDate <= 1000) {
       clearInterval(intervalId);
       startBtn.disabled = true;
