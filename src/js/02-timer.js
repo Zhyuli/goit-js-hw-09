@@ -1,7 +1,9 @@
 
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-import { Report } from 'notiflix/build/notiflix-report-aio';
+
+import Notiflix from 'notiflix';
+// import { Report } from 'notiflix/build/notiflix-report-aio';
 
 document.body.style.background = '#E6E6FA';
 
@@ -36,23 +38,23 @@ const options = {
 
 flatpickr(timerInput, options);
 
-Report.info('Select the date and click on start');
-  
 function checkDate (selectedDates) {
   selectedDate = selectedDates[0].getTime();
-  currentDate = new Date().getTime();
+  // currentDate = new Date().getTime();
+  currentDate = Date.now();
 
 if (selectedDate > currentDate) {
   startBtn.disabled = false;
-  Report.success('Click on start!');
+Notiflix.Notify.success('Hello!Click on start');
   return;
 }
-Report.failure('Please, choose a date in the future');
+  Notiflix.Notify.failure('Please choose a date in the future');
 }
 
 function timerStart() {
   intervalId = setInterval(() => {
-    currentDate = new Date().getTime();
+    // currentDate = new Date().getTime();
+    currentDate = Date.now();
   
     console.log(selectedDate);
     console.log(currentDate);
@@ -60,7 +62,7 @@ function timerStart() {
       clearInterval(intervalId);
       startBtn.disabled = true;
       timerInput.disabled = false;
-      Report.info('Timer stopped!');
+     Notiflix.Notify.success('Timer stopped!');
       return;
     } else {
       startBtn.disabled = true;
