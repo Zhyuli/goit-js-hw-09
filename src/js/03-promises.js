@@ -25,7 +25,7 @@ function onSubmit(evt) {
   let inpAmount = +amount.value;
 
   for (let i = 1; i <= inpAmount; i += 1) {
-    inpDelay += inpStep;
+    // inpDelay += inpStep;
 
     createPromise(i, inpDelay)
       .then(({ position, delay }) => {
@@ -34,7 +34,8 @@ function onSubmit(evt) {
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
-    evt.currentTarget.reset();
+    // evt.currentTarget.reset();
+     inpDelay += inpStep;
   }
 }
 
